@@ -1,5 +1,5 @@
 .navbar-brand {
-    font-size: 36px;
+    font-size: 28px;
 }
 /* The sidebar menu */
 .sidebar {
@@ -64,3 +64,6 @@
     display: none;  
   }
   
+  .checked {
+    color: orange;
+  }

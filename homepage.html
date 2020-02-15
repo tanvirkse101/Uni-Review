@@ -21,8 +21,8 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href=""><i class="fa fa-fw fa-home"></i> Home</a>
-        <a href=""><i class="fa fa-fw fa-group"></i>Messages</a>
-        <a href=""><i class="fa fa-fw fa-book"></i> Notifications</a>
+        <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
+        <a href=""><i class="fa fa-fw fa-bell"></i> Notifications</a>
         <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
     </div>
 
@@ -38,9 +38,9 @@
         <a class="navbar-brand" href="#">Uni-Review</a>
 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <form class="form-inline" action="">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-success" type="submit">Search</button>
+            <form class="example" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </nav>
 
@@ -58,8 +58,8 @@
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="">Edit Profile</a>
-                    <a class="dropdown-item" href=>About</a>
-                    <a class="dropdown-item" href=> Contact Us</a>
+                    <a class="dropdown-item" href="">About</a>
+                    <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
         </ul>
@@ -67,82 +67,92 @@
 
     <!--Main Body Start-->
 
-    <div class="container p-3 my-3 border">
+    <div class="container p-3 border" style="background-color:antiquewhite">
 
         <div class="jumbotron bg-primary">
-            <h1 style="color:white;text-align: center;font-size:72px">University</h1>
-            <h1 style="color:white;text-align: center;font-size:xx-large;">List</h1>
+            <h1 style="color:white;text-align: center;font-size:72px">University List</h1>
+
             <form class="form-inline justify-content-center" action="">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-success" type="submit">Search</button>
+                <div>
+                    <form class="example" action="action_page.php">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
             </form>
         </div>
 
         <div class="card-columns">
 
-            <div class="card" >
-                <img class="card-img-top" style="padding: 8px;" src="images/student.png" alt="">
+            <div class="card">
+                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
+                        <li class="list-group-item"><b><a style="color: black;" href="#">North South University</a></b></li>
+                        <li class="list-group-item">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate </a>
+                        </li>
+                        <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="card" >
-                <img class="card-img-top" style="padding: 8px;" src="images/student.png" alt="">
+            <div class="card">
+                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
+                    </ul>
                 </div>
             </div>
 
-            <div class="card" >
-                <img class="card-img-top" style="padding: 8px;" src="images/student.png" alt="">
+            <div class="card">
+                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
+                    </ul>
                 </div>
             </div>
 
-            <div class="card" >
-                <img class="card-img-top" style="padding: 8px;" src="images/student.png" alt="">
+            <div class="card">
+                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
-                </div>
-            </div>
-            
-            <div class="card" >
-                <img class="card-img-top" style="padding: 8px;" src="images/student.png" alt="">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
+                    </ul>
                 </div>
             </div>
 
-            <div class="card" >
-                <img class="card-img-top" style="padding: 8px;" src="images/student.png" alt="">
+            <div class="card">
+                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Cras justo odio</li>
                         <li class="list-group-item">Dapibus ac facilisis in</li>
                         <li class="list-group-item">Vestibulum at eros</li>
-                      </ul>
+                    </ul>
+                </div>
+            </div>
+
+                        <div class="card">
+                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
                 </div>
             </div>
 
