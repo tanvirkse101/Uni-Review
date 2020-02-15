@@ -1,9 +1,6 @@
 .navbar-brand {
     font-size: 36px;
 }
-.container {
-    margin-top: 200px;
-}
 /* The sidebar menu */
 .sidebar {
     height: 100%; /* 100% Full-height */
@@ -62,13 +59,6 @@
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
-  }
-  
-  .account-img {
-    height: 90px;
-    width: 90px;
-    margin-right: 20px;
-    margin-bottom: 16px;
   }
   .container::-webkit-scrollbar { 
     display: none;  
