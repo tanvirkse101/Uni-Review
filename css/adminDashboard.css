@@ -1,0 +1,17 @@
+.space{
+    margin: 5px;
+    border: 5px;
+    border-style: solid;
+    border-color: rgb(65, 22, 221);
+    border-radius: 15px;
+  
+  }
+
+  .formBorder{
+    margin: 5px;
+    border: 5px;
+    border-style: solid;
+    border-color: rgb(221, 22, 22);
+    border-radius: 15px;
+    background-color: rgb(65, 22, 221);
+  }

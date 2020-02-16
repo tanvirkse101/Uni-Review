@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminDashBoard</title>
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/adminDashboard.css">
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/adminDashBoard.js"></script>
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="background-color:rgb(121, 216, 233)">
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href=""><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
+        <a href=""><i class="fa fa-fw fa-bell"></i> Notifications</a>
+        <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
+    </div>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+        <button class="openbtn bg-dark" onclick="openNav()">&#9776; <b style="font-size: 18px;">Menu</b> </button>
+
+        <a class="navbar-brand" style="margin-left:25%;" href="#">
+            <img class="rounded-circle" style="width: 50px;height: 50px" src="images/Uni_Logo.png" alt="Logo"
+                style="width:40px;">
+        </a>
+
+        <a class="navbar-brand" href="#">Uni-Review</a>
+
+        
+
+        <!-- Links -->
+        <ul class="navbar-nav" style="margin-left:35%;">
+            <li class="nav-item">
+                <a class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Logout</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
+                    Settings</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="">Edit Profile</a>
+                    <a class="dropdown-item" href="">About</a>
+                    <a class="dropdown-item" href=""> Contact Us</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!--Main Body Start-->
+
+    <div class="container p-3">
+
+        <div>
+            <h1 class="text-center text-danger m-2 p-5" >DashBoard</h1>
+
+        </div>
+        <div class="text-center m-5 p-5">
+            
+            <button data-toggle="collapse" data-target="#addUni" class="space" onmouseover="hover(this)" onmouseout= "endHover(this)" >
+                <h3 class=" text-dark">Add University</h3>
+            </button>
+
+            <div id="addUni" class="collapse m-2 formBorder">
+                <form action="">
+                    
+
+                    <div class="form-group m-2">
+                        <label  for="Image"> <h3>University Image:</h3></label>
+                        <input type="file" class="form-control" id="Image" placeholder="Choose file" name="Image" required>
+                      </div>
+
+                    <div class="form-group m-2">
+                      <label for="Name"><h3>University Name:</h3></label>
+                      <input type="email" class="form-control" id="Name" placeholder="Enter Name" name="Name" required>
+                    </div>    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+
+
+        <div class="text-center m-5 p-5">
+            
+            <button data-toggle="collapse" data-target="#addProgram" class="space" onmouseover="hover(this)" onmouseout= "endHover(this)" >
+                <h3 class=" text-dark">Add Program</h3>
+            </button>
+
+            <div id="addProgram" class="collapse m-2 formBorder">
+
+
+                <label for="selectUni"><h3>Choose a University:</h3></label>
+                <select id="selectUni" name="unilist" form="ProgrammForm">
+                <option value="volvo">University 1</option>
+                <option value="saab">University 2</option>
+                <option value="opel">University 3</option>
+                <option value="audi">University 4</option>
+                </select>
+
+                <form action="" id="ProgrammForm">
+                    
+                    <div class="form-group m-2">
+                      <label for="programCode"><h3>Program Code:</h3></label>
+                      <input type="text" class="form-control" id="programCode" placeholder="Enter Code" name="programCode" required>
+                    </div>    
+
+                    <div class="form-group m-2">
+                      <label for="programName"><h3>Program Name:</h3></label>
+                      <input type="text" class="form-control" id="programName" placeholder="Enter Name" name="programName" required>
+                    </div>  
+
+                    <div class="form-group m-2">
+                        <label for="programDesc"><h3>Program Description:</h3></label>
+                        <input type="text" class="form-control" id="programDesc" placeholder="Enter description" name="programDesc" required>
+                      </div>  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+
+        <div class="text-center m-5 p-5">
+            
+            <button data-toggle="collapse" data-target="#addCourse" class="space" onmouseover="hover(this)" onmouseout= "endHover(this)" >
+                <h3 class=" text-dark">Add Course</h3>
+            </button>
+
+            <div id="addCourse" class="collapse m-2 formBorder">
+
+
+                <label for="selectUni"><h3>Choose a University:</h3></label>
+                <select id="selectUni" name="carlist" form="CourseForm">
+                <option value="volvo">University 1</option>
+                <option value="saab">University 2</option>
+                <option value="opel">University 3</option>
+                <option value="audi">University 4</option>
+                </select>
+
+                <form action="" id="CourseForm">
+                    
+                    <div class="form-group m-2">
+                      <label for="courseCode"><h3>Course Code:</h3></label>
+                      <input type="text" class="form-control" id="courseCode" placeholder="Enter Code" name="courseCode" required>
+                    </div>    
+
+                    <div class="form-group m-2">
+                      <label for="courseName"><h3>Course Name:</h3></label>
+                      <input type="text" class="form-control" id="courseName" placeholder="Enter Name" name="courseName" required>
+                    </div>  
+
+                    <div class="form-group m-2">
+                        <label for="courseDesc"><h3>Course Description:</h3></label>
+                        <input type="text" class="form-control" id="courseDesc" placeholder="Enter description" name="courseDesc" required>
+                      </div>  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+
+
+
+        <div class="text-center m-5 p-5">
+            
+            <button data-toggle="collapse" data-target="#addLab" class="space" onmouseover="hover(this)" onmouseout= "endHover(this)" >
+                <h3 class=" text-dark">Add Lab</h3>
+            </button>
+
+            <div id="addLab" class="collapse m-2 formBorder">
+
+
+                <label for="selectUni"><h3>Choose a University:</h3></label>
+                <select id="selectUni" name="carlist" form="LabForm">
+                <option value="volvo">University 1</option>
+                <option value="saab">University 2</option>
+                <option value="opel">University 3</option>
+                <option value="audi">University 4</option>
+                </select>
+
+                <form action="" id="LabForm">
+                    
+                    <div class="form-group m-2">
+                      <label for="labCode"><h3>Lab Code:</h3></label>
+                      <input type="text" class="form-control" id="labCode" placeholder="Enter Code" name="labCode" required>
+                    </div>    
+
+                    <div class="form-group m-2">
+                      <label for="labName"><h3>Lab Name:</h3></label>
+                      <input type="text" class="form-control" id="labName" placeholder="Enter Name" name="labName" required>
+                    </div>  
+
+                    <div class="form-group m-2">
+                        <label for="labDesc"><h3>Lab Description:</h3></label>
+                        <input type="text" class="form-control" id="labDesc" placeholder="Enter description" name="labDesc" required>
+                      </div>  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+
+
+
+        <div class="text-center m-5 p-5">
+            
+            <button data-toggle="collapse" data-target="#addFaculty" class="space" onmouseover="hover(this)" onmouseout= "endHover(this)" >
+                <h3 class=" text-dark">Add Faculty</h3>
+            </button>
+
+            <div id="addFaculty" class="collapse m-2 formBorder">
+
+
+                <label for="selectUni"><h3>Choose a University:</h3></label>
+                <select id="selectUni" name="carlist" form="FacultyForm">
+                <option value="volvo">University 1</option>
+                <option value="saab">University 2</option>
+                <option value="opel">University 3</option>
+                <option value="audi">University 4</option>
+                </select>
+
+                <form action="" id="FacultyForm">
+                    
+                    <div class="form-group m-2">
+                      <label for="facultyCode"><h3>Faculty Initial:</h3></label>
+                      <input type="text" class="form-control" id="facultyCode" placeholder="Enter Code" name="facultyCode" required>
+                    </div>    
+
+                    <div class="form-group m-2">
+                      <label for="facultyName"><h3>Faculty Name:</h3></label>
+                      <input type="text" class="form-control" id="facultyName" placeholder="Enter Name" name="facultyName" required>
+                    </div>  
+
+                    <div class="form-group m-2">
+                        <label for="facultyDesc"><h3>Courses Taken by Faculty:</h3></label>
+                        <input type="text" class="form-control" id="facultyDesc" placeholder="Enter Courses" name="facultyDesc" required>
+                      </div>  
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <!--Main Body End-->
+
+    <!--Bootstrap JS,JSQ-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
