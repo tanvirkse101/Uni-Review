@@ -1,0 +1,92 @@
+.navbar-brand {
+    font-size: 28px;
+}
+
+/* The sidebar menu */
+.sidebar {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #212529;
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 30px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: slategray;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    margin-right: 10px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    margin-top: 4%;
+    transition: margin-left .5s;
+    /* If you want a transition effect */
+}
+
+
+
+#carousel_images {
+    height: 500px;
+    max-width: 600px;
+}
+
+/*rajon code starts here */
+.mainbody {
+    width: 90%;
+    margin: 0 auto;
+}
+table{
+    width: 100%;
+}
+td {
+    height: 50px;
+    border: none;
+    padding: 25px;
+    height: 50px;
+}
+
+
+/* user info table css  ends*/
