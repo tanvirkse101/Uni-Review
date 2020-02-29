@@ -18,6 +18,8 @@
 
 <body>
 
+    <?php include 'db_connect.php';?>
+
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href=""><i class="fa fa-fw fa-home"></i> Home</a>
@@ -67,11 +69,10 @@
 
     <!--Main Body Start-->
 
-    <div class="container p-3 border" style="background-color:antiquewhite">
+    <div class="container-xl p-3 border" style="background-color:antiquewhite">
 
         <div class="jumbotron bg-primary">
-            <h1 style="color:white;text-align: center;font-size:72px">University List</h1>
-
+            <h1 class="display-1" style="color:white;text-align: center;">University List</h1>
             <form class="form-inline justify-content-center" action="">
                 <div>
                     <form class="example" action="action_page.php">
@@ -88,7 +89,8 @@
                 <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="university.html">North South University</a></b>
+                        <li class="list-group-item"><b><a style="color: black;" href="university.html">North South
+                                    University</a></b>
                         </li>
                         <li class="list-group-item">
                             <span class="fa fa-star checked"></span>
