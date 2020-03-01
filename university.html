@@ -38,7 +38,7 @@
         <a class="navbar-brand" href="#">Uni-Review</a>
 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <form class="example" action="action_page.php">
+            <form class="example" action="">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -66,7 +66,7 @@
     </nav>
 
     <!--Main Body Start-->
-    
+
     <?php 
         $uni_name=$_GET['uni_name'];
         $sql = "SELECT name, location, rating, img_src, short_descr, contact FROM university WHERE name='$uni_name'";
@@ -127,20 +127,20 @@
 
                     <h1 style="text-align: center;"> <?php echo htmlspecialchars($info['name']); ?></h1>
                     <li style="text-align: center;" class="list-group-item">
-                        <span> Ratings:  </span>
+                        <span> Ratings: </span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star-half checked"></span> 
-                       
+                        <span class="fa fa-star-half checked"></span>
+
                     </li>
                     <table class="table table-striped" style="text-align: center;">
                         <tr>
-                            <td>   <?php echo htmlspecialchars($info['location']); ?></td>
+                            <td> <?php echo htmlspecialchars($info['location']); ?></td>
                         </tr>
                         <tr>
-                            <td>   <?php echo htmlspecialchars($info['contact']); ?></td>
+                            <td> <?php echo htmlspecialchars($info['contact']); ?></td>
                         </tr>
                         <tr>
                             <td><a href="faculty.html">Faculties</a></td>
@@ -149,7 +149,7 @@
                             <td>
                                 <h3>Short Description</h3>
                                 <P>
-                                <?php echo htmlspecialchars($info['short_descr']); ?>
+                                    <?php echo htmlspecialchars($info['short_descr']); ?>
                                 </P>
                             </td>
                         </tr>
@@ -159,68 +159,81 @@
 
                 <div id="Programs" class="tabcontent">
 
-                <?php 
+                    <?php 
                     $uni_name=$_GET['uni_name'];
                     $sql = "SELECT title, name, short_description, rating, university_name FROM program WHERE university_name='$uni_name'";
                     $result = mysqli_query($conn,$sql);
                     $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     mysqli_free_result($result);
                     mysqli_close($conn);
-                ?>
+                    ?>
 
                     <h1>Programs</h1>
                     <ul class="list-group list-group-flush">
-                    <?php foreach($info as $info) { ?>
-                        <li class="list-group-item"><a href="programlist.html"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
-                    <?php } ?>
+                        <?php foreach($info as $info) { ?>
+                        <li class="list-group-item"><a
+                                href="programlist.html"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
+                        <?php } ?>
                     </ul>
 
                 </div>
 
                 <div id="Reviews" class="tabcontent">
-                    <ul class="comment-section">
 
-                        <li class="comment user-comment">
+                    <ul class="list-group">
+
+                        <li class="list-group-item">
                             <div class="info">
                                 <a href="#">Anie Silverston</a>
                                 <span>4 hours ago</span>
                             </div>
                             <a class="avatar" href="#">
-                                <img style="border-radius: 50%;" src="images/profile-avatar.png" width="35" alt="Profile Avatar" title="Anie Silverston" />
+                                <img style="border-radius: 50%;" src="images/profile-avatar.png" width="35"
+                                    alt="Profile Avatar" title="Anie Silverston" />
                             </a>
                             <p>Suspendisse gravida sem?</p>
                         </li>
-                    
-                        <li class="comment author-comment">
+
+                        <li class="list-group-item">
                             <div class="info">
                                 <a href="#">Jack Smith </a>
                                 <span>3 hours ago</span>
                             </div>
                             <a class="avatar" href="#">
-                                <img style="border-radius: 50%;" src="images/student.png" width="35" alt="Profile Avatar" title="Jack Smith" />
+                                <img style="border-radius: 50%;" src="images/student.png" width="35"
+                                    alt="Profile Avatar" title="Jack Smith" />
                             </a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sem sit amet molestie portitor.</p>
-                    
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sem sit amet
+                                molestie portitor.</p>
+
                         </li>
-                    
-                        <!-- More comments -->
-                    
-                        <li class="write-new">
-                    
-                            <form action="#" method="post">
-                                <textarea class="form-control" rows="3" placeholder="Write your comment here" name="comment" width="100%"></textarea>
-                                <div>
-                                    <img style="border-radius: 50%;" src="images/student.png" width="35" alt="Profile of Bradley Jones" title="Bradley Jones" />
-                                    <button type="submit">Submit</button>
+
+                        <li class="list-group-item">
+                            <div class="info">
+                                <a href="#">Jack Smith </a>
+                                <span>3 hours ago</span>
+                            </div>
+                            <a class="avatar" href="#">
+                                <img style="border-radius: 50%;" src="images/student.png" width="35"
+                                    alt="Profile Avatar" title="Jack Smith" />
+                            </a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sem sit amet
+                                molestie portitor.</p>
+                        </li>
+
+                        <li class="list-group-item">
+                            <form>
+                                <div class="form-group">
+                                    <label for="comment">Add a comment</label>
+                                    <input type="email" class="form-control" placeholder="Your comments">
                                 </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
-                    
                         </li>
-                        
-                        <li>
+
+                        <li class="list-group-item">
                             <a href="review.html">Load More Reviews +</a>
                         </li>
-                    
                     </ul>
                 </div>
 
