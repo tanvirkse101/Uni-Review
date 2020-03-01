@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+    <?php include 'php/db_connect.php';?>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="homepage.html"><i class="fa fa-fw fa-home"></i> Home</a>
@@ -66,12 +66,18 @@
     </nav>
 
     <!--Main Body Start-->
-
-    <div class="container p-3 border justify-content-center" style="background-color:antiquewhite">
+    
+    <?php 
+        $uni_name=$_GET['uni_name'];
+        $sql = "SELECT name, location, rating, img_src, short_descr, contact FROM university WHERE name='$uni_name'";
+        $result = mysqli_query($conn,$sql);
+        $info = mysqli_fetch_assoc($result);
+    ?>
+    <div class="container-xl shadow-lg p-3 border" style="background-color: white;">
 
         <div class="card">
 
-            <div class="card-header" style="background-color: black;">
+            <div class="card-header shadow" style="background-color: black;">
 
                 <div id="demo" class="carousel slide" data-ride="carousel">
 
@@ -107,7 +113,7 @@
 
             </div>
 
-            <div class="card-body">
+            <div class="card-body shadow">
 
                 <!-- Tab links -->
                 <div class="tab">
@@ -119,7 +125,7 @@
                 <!-- Tab content -->
                 <div id="University" class="tabcontent">
 
-                    <h1 style="text-align: center;">North South University</h1>
+                    <h1 style="text-align: center;"> <?php echo htmlspecialchars($info['name']); ?></h1>
                     <li style="text-align: center;" class="list-group-item">
                         <span> Ratings:  </span>
                         <span class="fa fa-star checked"></span>
@@ -131,10 +137,10 @@
                     </li>
                     <table class="table table-striped" style="text-align: center;">
                         <tr>
-                            <td>Location - Bashundhara, Dhaka-1229, Bangladesh</td>
+                            <td>   <?php echo htmlspecialchars($info['location']); ?></td>
                         </tr>
                         <tr>
-                            <td>Contact - +880-2-55668200</td>
+                            <td>   <?php echo htmlspecialchars($info['contact']); ?></td>
                         </tr>
                         <tr>
                             <td><a href="faculty.html">Faculties</a></td>
@@ -143,51 +149,7 @@
                             <td>
                                 <h3>Short Description</h3>
                                 <P>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit tellus eu
-                                    sodales tincidunt. Mauris nec ipsum sit amet elit condimentum pharetra a eget risus.
-                                    Etiam eleifend non ipsum ut imperdiet. Aliquam egestas egestas neque ut tempor.
-                                    Proin consequat ac justo quis luctus. Nam et urna vel ligula interdum volutpat ac id
-                                    mi. Aliquam erat volutpat.
-
-                                    Etiam mattis rhoncus augue ac hendrerit. Suspendisse ac bibendum orci. Nulla
-                                    facilisi. Praesent porttitor tortor id erat pulvinar, at condimentum mi venenatis.
-                                    Maecenas vulputate pellentesque arcu sit amet porttitor. Donec mattis facilisis
-                                    justo, nec finibus justo porttitor et. Aliquam pharetra eu mauris nec malesuada. Ut
-                                    id pharetra odio, quis tempus sapien. Ut venenatis consectetur est, eget egestas
-                                    nunc tristique non. Nulla posuere auctor nisl, vel malesuada odio consequat ut. Duis
-                                    laoreet augue est. Fusce ac enim a neque pellentesque rutrum et ac felis.
-
-                                    Praesent imperdiet vulputate libero, at egestas quam sollicitudin vitae. Proin
-                                    euismod, dui sed laoreet eleifend, metus elit ornare neque, at tristique odio nulla
-                                    in turpis. Nam ligula sapien, varius vitae lacus ac, ornare vulputate nibh. Proin
-                                    convallis tortor augue, in viverra neque iaculis ut. Maecenas ligula ex, viverra
-                                    eget vehicula quis, feugiat blandit orci. In hac habitasse platea dictumst. Ut eu
-                                    sem odio. Cras ut sapien ut sem facilisis aliquet. Mauris aliquet enim metus, a
-                                    tempus nisi laoreet vitae. Praesent luctus est elit, at sodales tellus tincidunt ut.
-                                    Donec tincidunt pulvinar risus eu maximus. Mauris et nibh et tortor accumsan rhoncus
-                                    id ac leo.
-
-                                    Suspendisse sit amet diam erat. Nunc a lacus ligula. Nunc quis facilisis libero.
-                                    Nunc feugiat mi cursus molestie porttitor. Suspendisse placerat dignissim venenatis.
-                                    Curabitur in elementum velit. In rhoncus, est vitae vulputate lobortis, mi dolor
-                                    interdum ex, vitae eleifend mi erat ac justo. Curabitur vitae auctor turpis, eget
-                                    vehicula lacus. Pellentesque convallis accumsan urna, vitae tincidunt nunc vehicula
-                                    at. Proin feugiat metus nec enim efficitur, in sollicitudin urna egestas.
-                                    Pellentesque vel ante commodo, viverra ex vitae, lobortis augue. Nullam tempus magna
-                                    nulla, a commodo libero pellentesque iaculis. Pellentesque convallis, lectus vel
-                                    cursus efficitur, nisi diam cursus nisi, ac iaculis quam arcu ullamcorper lorem.
-                                    Vivamus consequat turpis neque, vitae tincidunt elit molestie eu. Nunc varius dictum
-                                    varius. Maecenas viverra lorem ac ante dapibus, in lobortis nisi egestas.
-
-                                    Ut elementum lectus vel arcu iaculis hendrerit nec at urna. Suspendisse hendrerit
-                                    porta bibendum. In rhoncus molestie sollicitudin. Praesent massa lorem, ultricies id
-                                    molestie vitae, fringilla eget neque. Phasellus dictum libero non nunc luctus
-                                    scelerisque. Proin euismod molestie mi nec varius. Nulla rhoncus, massa eu efficitur
-                                    viverra, ligula purus commodo velit, vitae ultricies mi risus quis mi. In nec velit
-                                    quis leo laoreet lacinia a et nulla. Curabitur dignissim purus sit amet turpis
-                                    tempus, nec blandit turpis lacinia. Curabitur efficitur ipsum eget consequat
-                                    molestie. Phasellus vehicula diam sit amet interdum vehicula. Proin cursus porttitor
-                                    rutrum. Praesent tortor nulla, sollicitudin nec nisi ut, placerat viverra nulla.
+                                <?php echo htmlspecialchars($info['short_descr']); ?>
                                 </P>
                             </td>
                         </tr>
@@ -197,13 +159,20 @@
 
                 <div id="Programs" class="tabcontent">
 
+                <?php 
+                    $uni_name=$_GET['uni_name'];
+                    $sql = "SELECT title, name, short_description, rating, university_name FROM program WHERE university_name='$uni_name'";
+                    $result = mysqli_query($conn,$sql);
+                    $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    mysqli_free_result($result);
+                    mysqli_close($conn);
+                ?>
+
                     <h1>Programs</h1>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><a href="programlist.html"><b>CSE</b></a></li>
-                        <li class="list-group-item"><a href="#"><b>BBA</b></a></li>
-                        <li class="list-group-item"><a href="#"><b>EEE</b></a></li>
-                        <li class="list-group-item"><a href="#"><b>CEE</b></a></li>
-                        <li class="list-group-item"><a href="#"><b>ETE</b></a></li>
+                    <?php foreach($info as $info) { ?>
+                        <li class="list-group-item"><a href="programlist.html"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
+                    <?php } ?>
                     </ul>
 
                 </div>

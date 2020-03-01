@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    
+
     <?php include 'php/db_connect.php';?>
 
     <div id="mySidebar" class="sidebar">
@@ -28,11 +28,11 @@
         <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
     </div>
 
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark shadow">
 
         <button class="openbtn bg-dark" onclick="openNav()">&#9776; <b style="font-size: 18px;">Menu</b> </button>
 
-        <a class="navbar-brand" style="margin-left:25%;" href="#">
+        <a class="navbar-brand" style="margin-left:35%;" href="#">
             <img class="rounded-circle" style="width: 50px;height: 50px" src="images/Uni_Logo.png" alt="Logo"
                 style="width:40px;">
         </a>
@@ -69,35 +69,36 @@
 
     <!--Main Body Start-->
 
-    <div class="container-xl p-3 border" style="background-color:antiquewhite">
+    <div class="container-xl shadow-lg p-3 border" style="background-color: white;">
 
-        <div class="jumbotron bg-primary">
+        <div class="jumbotron bg-primary shadow-lg">
             <h1 class="display-4" style="color:white;text-align: center;">University List</h1>
-            <form class="form-inline justify-content-center" action="">
-                <div>
-                    <form class="example" action="action_page.php">
-                        <input type="text" placeholder="Search.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-            </form>
         </div>
-
+        <?php 
+                $sql = 'SELECT name, location, rating FROM university';
+                $result = mysqli_query($conn,$sql);
+                $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                mysqli_free_result($result);
+                mysqli_close($conn);
+        ?>
         <div class="card-columns">
 
-            <div class="card rounded">
+            <?php foreach($info as $info) { ?>
+
+            <div class="card shadow border rounded" style="width:356px;height:402px">
                 <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="university.html">North South
-                                    University</a></b>
+                        <li class="list-group-item"><b><a style="color: black;"
+                                    href="university.html?<?php echo "uni_name="; ?><?php echo $info['name'];?>"><?php echo htmlspecialchars($info['name']); ?></a></b>
                         </li>
                         <li class="list-group-item">
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate
+                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;"
+                                href="#"><?php echo htmlspecialchars($info['rating']); ?>
                             </a>
                         </li>
                         <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
@@ -105,103 +106,7 @@
                 </div>
             </div>
 
-            <div class="card">
-                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="#">University Z</a></b>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate
-                            </a>
-                        </li>
-                        <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="#">University X</a></b>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate
-                            </a>
-                        </li>
-                        <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="#">University A</a></b>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate
-                            </a>
-                        </li>
-                        <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="#">University B</a></b>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate
-                            </a>
-                        </li>
-                        <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
-                <div class="card-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b><a style="color: black;" href="#">University C</a></b>
-                        </li>
-                        <li class="list-group-item">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star-half checked"></span> <a style="margin-left: 10px;" href="#">Rate
-                            </a>
-                        </li>
-                        <li class="list-group-item"><a href="#"> Click for more info -> </a></li>
-                    </ul>
-                </div>
-            </div>
-
-
-
+            <?php } ?>
 
         </div>
 
