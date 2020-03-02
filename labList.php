@@ -1,10 +1,33 @@
+
+<?php include 'php/db_connect.php';?>
+
+<?php
+
+
+if(isset($_POST['btndelete'])){
+
+
+    $id =   $_POST['id'];
+
+    $sql = "DELETE FROM lab WHERE id=$id";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "Record deleted successfully";
+        } else {
+        echo "Error deleting record: " . mysqli_error($conn);
+        }
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program</title>
+    <title>labList</title>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -73,7 +96,44 @@
     <div class="container p-3 ">
 
         <div class = "row">
+
+        <?php
+
+        $uni_name=$_GET['uni_name'];
+         $sql = "SELECT id, title, name, short_description FROM lab Where university_name = '$uni_name'";
+         $result = mysqli_query($conn, $sql);
+         while($row = mysqli_fetch_array($result) ){
+
+
+            echo  '            
             <div class = "col-sm-12 col-md-6 col-lg-4">             
+            <div class="card space" onmouseover="hover(this); show()" onmouseout= "endHover(this); hide()">
+             <div class="card-header"> <h2 class="text-center">'.$row["title"].'</h2></div>
+             <div class="card-body"><h5>'.$row["name"].'</h5>
+                 <p>'.$row["short_description"].'.</p>               
+             </div> 
+             <div class="card-footer">
+                
+                
+            <form method="post"   enctype="multipart/form-data">
+                <input type="hidden" name = "id"  value ='.$row["id"].' >
+                <button type="submit" name="btndelete" >Delete</button>
+            </form>
+                 </div>
+                
+             </div>
+           </div>
+        
+            
+            ';
+          }
+         
+       
+        
+        ?>
+
+ 
+            <!-- <div class = "col-sm-12 col-md-6 col-lg-4">             
                <div class="card space" onmouseover="hover(this); show()" onmouseout= "endHover(this); hide()">
                 <div class="card-header"> <h2 class="text-center">CSE115</h2></div>
                 <div class="card-body"><h5>Programming Language1</h5>
@@ -97,6 +157,8 @@
               </div>
             </div>
 
+
+            
 
             <div class = "col-sm-12 col-md-6 col-lg-4">             
                 <div class="card space" onmouseover="hover(this); show()" onmouseout= "endHover(this); hide()">
@@ -272,7 +334,7 @@
               </div>
 
            
- 
+  -->
   
            
          </div>

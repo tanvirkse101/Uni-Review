@@ -2,7 +2,7 @@
 session_start();
 ob_flush();
 $message="";
-require 'php/db_connect.php';
+require 'php/db_connect1.php';
  
 if(isset($_POST['action']))
 {          
@@ -10,11 +10,11 @@ if(isset($_POST['action']))
     {
 		extract ($_POST);
          $email = mysqli_real_escape_string($connection,$_POST['email']);
-		$fname = mysqli_real_escape_string($connection,$_POST['fname']);
+		$name = mysqli_real_escape_string($connection,$_POST['name']);
        
 		$contact = floatval(mysqli_real_escape_string($connection,$_POST['contact']));
         $password = mysqli_real_escape_string($connection,$_POST['password']);
-		$strSQL1 = mysqli_query($connection,"insert into users (email,fname,contact,password) values ('".$email."','".$fname."','".$contact."','".($password)."')");
+		$strSQL1 = mysqli_query($connection,"insert into users (email,name,contact,password) values ('".$email."','".$name."','".$contact."','".($password)."')");
 ?>
 		<META HTTP-EQUIV="refresh" CONTENT="1;URL=signin.php">
 
@@ -92,10 +92,10 @@ if(isset($_POST['action']))
 
 <SCRIPT LANGUAGE="JavaScript">
 function check() {
-fn=document.form1.fname.value;
+fn=document.form1.name.value;
 if (fn.length<1) {
 alert("Please Enter First Name");
-document.form1.fname.focus();
+document.form1.name.focus();
 return false;
 }
 pn=document.form1.contact.value;
@@ -133,7 +133,7 @@ return true
             <input type="email" name="email" class="form-control input-sm chat-input" placeholder="email" />
             </br>
 
-            <input type="text" name="fname" class="form-control input-sm chat-input" placeholder="name" />
+            <input type="text" name="name" class="form-control input-sm chat-input" placeholder="name" />
             </br>
             
       <!--       <input type="text" id="address" class="form-control input-sm chat-input" placeholder="Address" />
@@ -164,7 +164,7 @@ return true
 
 			<input type="submit" name="action" class="login login-signup" value="Sign up">
              <div class="login-help">
-    			<a href="signin.php">Login</a>
+    			<a href="#">Login</a>
   				</div>
             </div>
         

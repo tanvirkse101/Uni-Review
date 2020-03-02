@@ -1,3 +1,23 @@
+<?php
+
+if(!isset($_COOKIE['one'])){
+    $cookie_name = 'one';
+    $cookie_value = $_GET['uni_name'];
+    setcookie($cookie_name, $cookie_value, time()+ (86400+30),'/');
+}
+
+else if(!isset($_COOKIE['two'])){
+    $cookie_name = 'two';
+    $cookie_value = $_GET['uni_name'];
+    setcookie($cookie_name, $cookie_value, time()+ (86400+30),'/');
+}
+else {
+    $cookie_name = 'three';
+    $cookie_value = $_GET['uni_name'];
+    setcookie($cookie_name, $cookie_value, time()+ (86400+30),'/');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,7 +87,7 @@
 
     <!--Main Body Start-->
 
-    <?phpz
+    <?php 
         $uni_name=$_GET['uni_name'];
         $sql = "SELECT name, location, rating, img_src, short_descr, contact FROM university WHERE name='$uni_name'";
         $result = mysqli_query($conn,$sql);
@@ -155,6 +175,21 @@
                         </tr>
                     </table>
 
+
+                   <a href="homepage.php"> <h1>See Also </h1></a>
+                    <h3><?php if(isset($_COOKIE['one'])){
+                        echo $_COOKIE['one'];
+                    }                                      
+                    ?></h3>
+                     <h3><?php if(isset($_COOKIE['two'])){
+                        echo $_COOKIE['two'];
+                    }                                      
+                    ?></h3>
+                     <h3><?php if(isset($_COOKIE['three'])){
+                        echo $_COOKIE['three'];
+                    }                                      
+                    ?></h3>
+
                 </div>
 
                 <div id="Programs" class="tabcontent">
@@ -168,17 +203,20 @@
                     
                     mysqli_free_result($result);
                     mysqli_close($conn);
+                    
                     ?>
-                     <a href="courseList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Courses</h2></a>
+                    <a href="courseList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Programs</h2></a>
                     <hr/>
-                    <a href="labList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Labs</h2></a>
+                    <a href="labListist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Programs</h2></a>
                     <hr/>
                     <a href="programlist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Programs</h2></a>
                     <ul class="list-group list-group-flush">
-                        <?php foreach($info as $info) { ?>
-                        <li class="list-group-item"><a
-                                href="programlist.html"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
-                        <?php } ?>
+                        <?php if(!empty($info)){
+                            foreach($info as $info) { ?>
+                                <li class="list-group-item"><a
+                                        href="programlist.html"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
+                                <?php }
+                        } ?>
                     </ul>
 
                    

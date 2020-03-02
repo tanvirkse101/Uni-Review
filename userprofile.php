@@ -1,3 +1,4 @@
+<?php include 'php/db_connect.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,31 +77,34 @@
 
                 <table class="shadow-lg p-3 mb-5 bg-white rounded">
                     
+                    <?php
+                    session_start();
+                     $Uemail = $_SESSION["email"];
+                    $sql = "SELECT name, contact  FROM user Where email = '$Uemail'";
+                    $result = mysqli_query($conn, $sql);
+                    $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    // echo  $result[0]['name'] ;
+                    
+                    ?>
+
+
                     <tr>
-                        <td>first name:</td>
-                        <td>bruce</td>
+                        <td>name:</td>
+                        <td><?php echo  $info[0]['name'] ;?></td>
                         
                     </tr>
-                    <tr>
-                        <td>last name:</td>
-                        <td>lee</td>
-                        
-                    </tr>
+                    
                     <tr>
                         <td>email:</td>
-                        <td>user one@gmail.com </td>
+                        <td><?php  echo  $Uemail ; ?> </td>
                         
                     </tr>
                     <tr>
                         <td>phone:</td>
-                        <td>0178549586</td>
+                        <td><?php  echo  $info[0]['contact'] ; ?></td>
                         
                     </tr>
-                    <tr>
-                        <td>password:</td>
-                        <td>nothing is imposible</td>
-                        
-                    </tr>
+                    
                     
                     
                 </table>

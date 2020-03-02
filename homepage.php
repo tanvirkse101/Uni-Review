@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,29 +28,6 @@
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
         <a href=""><i class="fa fa-fw fa-bell"></i> Notifications</a>
         <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
-
-        <!--Backup Login System-->
-        <!--
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-envelope"></i>
-            Quicklogin</a>
-            <form class="dropdown-menu p-4 bg-dark text-white" method="POST action="#">
-                <div class="form-group">
-                  <label for="exampleDropdownFormEmail2">Email address</label>
-                  <input type="email" class="form-control" name="email" placeholder="email@example.com">
-                </div>
-                <div class="form-group">
-                  <label for="exampleDropdownFormPassword2">Password</label>
-                  <input type="password" class="form-control" name="password" placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-danger">Sign in</button>
-              </form>
-        </li>
-        -->
-
-        
-        <!--Backup Login System-->
 
     </div>
 
@@ -97,6 +76,7 @@
                     <a class="dropdown-item" href="userprofile.html">Edit Profile</a>
                     <a  class="dropdown-item" href="php/logout.php">logout</a>
                     <a class="dropdown-item" href="aboutpage.html">About</a>
+                    <a class="dropdown-item" href="adminDashboard.php">Admin Dashboard</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
@@ -127,7 +107,10 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><b><a style="color: black;"
-                            href="university.html?<?php echo "uni_name="; ?><?php echo $info['name'];?>"><?php echo htmlspecialchars($info['name']); ?></a></b>
+                            href="university.php?<?php echo "uni_name="; ?><?php echo $info['name'];?>"><?php echo htmlspecialchars($info['name']); ?>
+                            <??>
+                            
+                            </a></b>
                         </li>
                         <li class="list-group-item">
                             <span class="fa fa-star checked"></span>
