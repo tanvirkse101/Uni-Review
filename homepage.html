@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+    <?php session_start() ?>
     <?php include 'php/db_connect.php';?>
 
     <div id="mySidebar" class="sidebar">
@@ -76,7 +76,18 @@
                 <a class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="signin.html"><i class="fa fa-fw fa-user-circle"></i> Login</a>
+               <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i>
+                <?php
+                if($_SESSION["name"]) 
+                {
+                echo $_SESSION["name"];
+                }
+                else
+                {
+                    echo 'Login';
+                }
+                ?>
+                </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%"
@@ -84,6 +95,7 @@
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="userprofile.html">Edit Profile</a>
+                    <a  class="dropdown-item" href="php/logout.php">logout</a>
                     <a class="dropdown-item" href="aboutpage.html">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
