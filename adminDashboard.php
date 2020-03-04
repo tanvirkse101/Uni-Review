@@ -247,7 +247,7 @@
 
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="homepage.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
         <a href=""><i class="fa fa-fw fa-bell"></i> Notifications</a>
         <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
@@ -269,7 +269,7 @@
         <!-- Links -->
         <ul class="navbar-nav" style="margin-left:35%;">
             <li class="nav-item">
-                <a class="nav-link" href="homepage.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Logout</a>
@@ -279,8 +279,8 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="aboutpage.html">About</a>
+                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>

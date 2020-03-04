@@ -59,7 +59,7 @@
 						<li><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Uni-Review</a></li>
 						<li><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i> University</a></li>
 						<li><a href="#"><i class="fa fa-book" aria-hidden="true"></i> Publications</a></li>
-						<li class="active"><a href="students.html"><i class="fa fa-users" aria-hidden="true"></i> Faculty</a></li>
+						<li class="active"><a href="#"><i class="fa fa-users" aria-hidden="true"></i> Faculty</a></li>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-database" aria-hidden="true"></i> Resources<span class="caret"></span></a>
 							<ul class="dropdown-menu">

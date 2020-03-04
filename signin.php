@@ -20,7 +20,7 @@ if(isset($_POST['action']))
       $db_password = $row['password'];
       if($password==$db_password)
       {
-        header("location:homepage.html");
+        header("location:homepage.php");
       }
       else
       {

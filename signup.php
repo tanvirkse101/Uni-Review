@@ -77,7 +77,7 @@ if(isset($_POST['action']))
        <!-- <li><a href="#">Link</a></li> -->
       </ul>
       <ul class="nav navbar-nav navbar-right">
-       	<li><a href="homepage.html">Home</a></li>
+       	<li><a href="homepage.php">Home</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

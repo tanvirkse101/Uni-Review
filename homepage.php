@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,8 +53,8 @@
                 <a class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i>
-                <?php
+                <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i>
+                    <?php
                 if(isset($_SESSION["name"])) 
                 {
                 echo $_SESSION["name"];
@@ -73,9 +71,9 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.html">Edit Profile</a>
-                    <a  class="dropdown-item" href="php/logout.php">logout</a>
-                    <a class="dropdown-item" href="aboutpage.html">About</a>
+                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="php/logout.php">logout</a>
+                    <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href="adminDashboard.php">Admin Dashboard</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
@@ -107,10 +105,10 @@
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><b><a style="color: black;"
-                            href="university.php?<?php echo "uni_name="; ?><?php echo $info['name'];?>"><?php echo htmlspecialchars($info['name']); ?>
-                            <??>
-                            
-                            </a></b>
+                                    href="university.php?<?php echo "uni_name="; ?><?php echo $info['name'];?>"><?php echo htmlspecialchars($info['name']); ?>
+                                    <??>
+
+                                </a></b>
                         </li>
                         <li class="list-group-item">
                             <span class="fa fa-star checked"></span>

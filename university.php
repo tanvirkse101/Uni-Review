@@ -40,7 +40,7 @@ else {
     <?php include 'php/db_connect.php';?>
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="homepage.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
         <a href=""><i class="fa fa-fw fa-bell"></i> Notifications</a>
         <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
@@ -67,7 +67,7 @@ else {
         <!-- Links -->
         <ul class="navbar-nav" style="margin-left:15%;">
             <li class="nav-item">
-                <a class="nav-link" href="homepage.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i> Login</a>
@@ -77,8 +77,8 @@ else {
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.html">Edit Profile</a>
-                    <a class="dropdown-item" href="aboutpage.html">About</a>
+                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
@@ -163,7 +163,7 @@ else {
                             <td> <?php echo htmlspecialchars($info['contact']); ?></td>
                         </tr>
                         <tr>
-                            <td><a href="faculty.html">Faculties</a></td>
+                            <td><a href="faculty.php">Faculties</a></td>
                         </tr>
                         <tr>
                             <td>
@@ -176,16 +176,18 @@ else {
                     </table>
 
 
-                   <a href="homepage.php"> <h1>See Also </h1></a>
+                    <a href="homepage.php">
+                        <h1>See Also </h1>
+                    </a>
                     <h3><?php if(isset($_COOKIE['one'])){
                         echo $_COOKIE['one'];
                     }                                      
                     ?></h3>
-                     <h3><?php if(isset($_COOKIE['two'])){
+                    <h3><?php if(isset($_COOKIE['two'])){
                         echo $_COOKIE['two'];
                     }                                      
                     ?></h3>
-                     <h3><?php if(isset($_COOKIE['three'])){
+                    <h3><?php if(isset($_COOKIE['three'])){
                         echo $_COOKIE['three'];
                     }                                      
                     ?></h3>
@@ -205,21 +207,27 @@ else {
                     mysqli_close($conn);
                     
                     ?>
-                    <a href="courseList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Programs</h2></a>
-                    <hr/>
-                    <a href="labListist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Programs</h2></a>
-                    <hr/>
-                    <a href="programlist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>"><h2>Programs</h2></a>
+                    <a href="courseList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                        <h2>Programs</h2>
+                    </a>
+                    <hr />
+                    <a href="labListist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                        <h2>Programs</h2>
+                    </a>
+                    <hr />
+                    <a href="programlist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                        <h2>Programs</h2>
+                    </a>
                     <ul class="list-group list-group-flush">
                         <?php if(!empty($info)){
                             foreach($info as $info) { ?>
-                                <li class="list-group-item"><a
-                                        href="programlist.html"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
-                                <?php }
+                        <li class="list-group-item"><a
+                                href="programlist.php"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
+                        <?php }
                         } ?>
                     </ul>
 
-                   
+
                 </div>
 
                 <div id="Reviews" class="tabcontent">
@@ -276,7 +284,7 @@ else {
                         </li>
 
                         <li class="list-group-item">
-                            <a href="review.html">Load More Reviews +</a>
+                            <a href="review.php">Load More Reviews +</a>
                         </li>
                     </ul>
                 </div>
