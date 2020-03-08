@@ -82,7 +82,7 @@ if(isset($_POST['action']))
 
 </head>
 
-<body background="cool.jpg">
+<body background="images/cool.jpg">
 
 <br>
 <br>

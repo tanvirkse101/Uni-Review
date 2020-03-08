@@ -208,11 +208,11 @@ else {
                     
                     ?>
                     <a href="courseList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
-                        <h2>Programs</h2>
+                        <h2>Courses</h2>
                     </a>
                     <hr />
-                    <a href="labListist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
-                        <h2>Programs</h2>
+                    <a href="labList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                        <h2>Labs</h2>
                     </a>
                     <hr />
                     <a href="programlist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
@@ -221,8 +221,9 @@ else {
                     <ul class="list-group list-group-flush">
                         <?php if(!empty($info)){
                             foreach($info as $info) { ?>
-                        <li class="list-group-item"><a
-                                href="programlist.php"><b><?php echo htmlspecialchars($info['title']); ?></b></a></li>
+                        <li class="list-group-item">
+                            <h5><b><?php echo htmlspecialchars($info['title']); ?></b></h5>
+                        </li>
                         <?php }
                         } ?>
                     </ul>

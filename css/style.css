@@ -1,3 +1,7 @@
+#container {
+  max-height: 100px;
+  overflow-y: auto;
+}
 .navbar-brand {
   font-size: 28px;
 }

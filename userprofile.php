@@ -46,7 +46,7 @@
         <!-- Links -->
         <ul class="navbar-nav" style="margin-left:15%;">
             <li class="nav-item">
-                <a class="nav-link" href="homepage.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Login</a>
@@ -56,7 +56,7 @@
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="aboutpage.phpl">About</a>
+                    <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
