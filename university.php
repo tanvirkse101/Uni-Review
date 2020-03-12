@@ -2,18 +2,18 @@
 
 if(!isset($_COOKIE['one'])){
     $cookie_name = 'one';
-    $cookie_value = $_GET['uni_name'];
+    $cookie_value = $_GET['uni_id'];
     setcookie($cookie_name, $cookie_value, time()+ (86400+30),'/');
 }
 
 else if(!isset($_COOKIE['two'])){
     $cookie_name = 'two';
-    $cookie_value = $_GET['uni_name'];
+    $cookie_value = $_GET['uni_id'];
     setcookie($cookie_name, $cookie_value, time()+ (86400+30),'/');
 }
 else {
     $cookie_name = 'three';
-    $cookie_value = $_GET['uni_name'];
+    $cookie_value = $_GET['uni_id'];
     setcookie($cookie_name, $cookie_value, time()+ (86400+30),'/');
 }
 
@@ -88,8 +88,9 @@ else {
     <!--Main Body Start-->
 
     <?php 
-        $uni_name=$_GET['uni_name'];
-        $sql = "SELECT name, location, rating, img_src, short_descr, contact FROM university WHERE name='$uni_name'";
+        $uni_id = $_GET['uni_id'];
+        // $uni_name=$_GET['uni_name'];
+        $sql = "SELECT name, location, rating, img_src, short_descr, contact FROM university WHERE id='$uni_id'";
         $result = mysqli_query($conn,$sql);
         $info = mysqli_fetch_assoc($result);
     ?>
@@ -180,25 +181,49 @@ else {
                         <h1>See Also </h1>
                     </a>
                     <h3><?php if(isset($_COOKIE['one'])){
-                        echo $_COOKIE['one'];
+                        $uni_id = $_COOKIE['one'];
+                        $sql = "SELECT id, name FROM university WHERE id='$uni_id'";
+                        $result = mysqli_query($conn,$sql);
+                        $info = mysqli_fetch_assoc($result);
+                       
+
+
+                        echo  '<a href="university.php?uni_id='.$info['id'].'">'.$info['name'].'</a>';
+                        
                     }                                      
                     ?></h3>
+                    
                     <h3><?php if(isset($_COOKIE['two'])){
-                        echo $_COOKIE['two'];
+                        $uni_id = $_COOKIE['two'];
+                        $sql = "SELECT id, name FROM university WHERE id='$uni_id'";
+                        $result = mysqli_query($conn,$sql);
+                        $info = mysqli_fetch_assoc($result);
+                       
+
+
+                        echo  '<a href="university.php?uni_id='.$info['id'].'">'.$info['name'].'</a>';
                     }                                      
                     ?></h3>
                     <h3><?php if(isset($_COOKIE['three'])){
-                        echo $_COOKIE['three'];
+                        $uni_id = $_COOKIE['three'];
+                        $sql = "SELECT id, name FROM university WHERE id='$uni_id'";
+                        $result = mysqli_query($conn,$sql);
+                        $info = mysqli_fetch_assoc($result);
+                       
+
+
+                        echo  '<a href="university.php?uni_id='.$info['id'].'">'.$info['name'].'</a>';
+                        
                     }                                      
                     ?></h3>
-
+                        
                 </div>
 
                 <div id="Programs" class="tabcontent">
 
                     <?php 
-                    $uni_name=$_GET['uni_name'];
-                    $sql = "SELECT title, name, short_description, rating, university_name FROM program WHERE university_name='$uni_name'";
+                   $uni_id = $_GET['uni_id'];
+                    $sql = "SELECT title, name, short_description, rating, university FROM program WHERE university='$uni_id'";
                     $result = mysqli_query($conn,$sql);
                     $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -207,15 +232,15 @@ else {
                     mysqli_close($conn);
                     
                     ?>
-                    <a href="courseList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                    <a href="courseList.php?<?php echo "uni_id="; ?><?php echo $uni_id;?>">
                         <h2>Courses</h2>
                     </a>
                     <hr />
-                    <a href="labList.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                    <a href="labList.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>">
                         <h2>Labs</h2>
                     </a>
                     <hr />
-                    <a href="programlist.php?<?php echo "uni_name="; ?><?php echo $info[0]['university_name'];?>">
+                    <a href="programlist.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>">
                         <h2>Programs</h2>
                     </a>
                     <ul class="list-group list-group-flush">

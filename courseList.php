@@ -98,8 +98,8 @@ if(isset($_POST['btndelete'])){
         <div class = "row">
 
         <?php
-          $uni_name=$_GET['uni_name'];
-         $sql = "SELECT id, title, name, short_description FROM course Where university_name = '$uni_name'";
+         $uni_id=$_GET['uni_id'];
+         $sql = "SELECT id, title, name, short_description FROM course Where university = '$uni_id'";
          $result = mysqli_query($conn, $sql);
          while($row = mysqli_fetch_array($result) ){
 

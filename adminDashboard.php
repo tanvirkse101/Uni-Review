@@ -18,7 +18,10 @@
       
 
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        $name = $Uname.".".$imageFileType;
+         $img_name =  $Uname;
+        
+         $img_name = preg_replace('/\s+/', '_', $img_name);
+        $name = $img_name.".".$imageFileType;
        
        
         // Select file type
@@ -48,11 +51,7 @@
           }
         
 
-        echo $Uname ;
-        echo $location;
-        echo $short_desc;
-        echo $contact;
-
+        
     }
 
     // uni submission end
@@ -70,7 +69,7 @@
 
         
         
-        $sql = "INSERT INTO program (title,name,  short_description,university_name)
+        $sql = "INSERT INTO program (title,name,  short_description,university)
         VALUES ('$title','$name', '$short_desc','$uni')";
 
         if (mysqli_query($conn, $sql)) {
@@ -102,7 +101,7 @@
 
         
         
-        $sql = "INSERT INTO course (title,name,  short_description,university_name)
+        $sql = "INSERT INTO course (title,name,  short_description,university)
         VALUES ('$title','$name', '$short_desc','$uni')";
 
         if (mysqli_query($conn, $sql)) {
@@ -134,7 +133,7 @@
 
         
         
-        $sql = "INSERT INTO lab (title,name,  short_description,university_name)
+        $sql = "INSERT INTO lab (title,name,  short_description,university)
         VALUES ('$title','$name', '$short_desc','$uni')";
 
         if (mysqli_query($conn, $sql)) {
@@ -187,7 +186,7 @@
            move_uploaded_file($_FILES['FImage']['tmp_name'],$target_dir.$name);
         }
         
-        $sql = "INSERT INTO faculty (name, email,research_area, img_src,university_name)
+        $sql = "INSERT INTO faculty (name, email,research_area, img_src,university)
         VALUES ('$Fname', '$email','$research_area', '$name','$uni')";
 
         if (mysqli_query($conn, $sql)) {
@@ -347,10 +346,10 @@
                 <select id="selectUni" name="unilist" form="ProgrammForm">
 
                 <?php 
-                  $sql = "SELECT name FROM university";
+                  $sql = "SELECT id, name FROM university";
                   $result = mysqli_query($conn, $sql);
                   while($row = mysqli_fetch_array($result) ){
-                    echo "<option value=".$row['name'].">".$row['name']. "</option>";
+                    echo "<option value=".$row['id'].">".$row['name']. "</option>";
                   }
                 
                 ?>
@@ -393,10 +392,10 @@
                 <label for="selectUni"><h3>Choose a University:</h3></label>
                 <select id="selectUni" name="unilist" form="CourseForm">
                 <?php 
-                  $sql = "SELECT name FROM university";
+                  $sql = "SELECT id, name FROM university";
                   $result = mysqli_query($conn, $sql);
                   while($row = mysqli_fetch_array($result) ){
-                    echo "<option value=".$row['name'].">".$row['name']. "</option>";
+                    echo "<option value=".$row['id'].">".$row['name']. "</option>";
                   }
                 
                 ?>
@@ -437,10 +436,10 @@
                 <label for="selectUni"><h3>Choose a University:</h3></label>
                 <select id="selectUni" name="unilist" form="LabForm">
                 <?php 
-                  $sql = "SELECT name FROM university";
+                  $sql = "SELECT id, name FROM university";
                   $result = mysqli_query($conn, $sql);
                   while($row = mysqli_fetch_array($result) ){
-                    echo "<option value=".$row['name'].">".$row['name']. "</option>";
+                    echo "<option value=".$row['id'].">".$row['name']. "</option>";
                   }
                 
                 ?>
@@ -481,10 +480,10 @@
                 <label for="selectUni"><h3>Choose a University:</h3></label>
                 <select id="selectUni" name="unilist" form="FacultyForm">
                 <?php 
-                  $sql = "SELECT name FROM university";
+                  $sql = "SELECT id, name FROM university";
                   $result = mysqli_query($conn, $sql);
                   while($row = mysqli_fetch_array($result) ){
-                    echo "<option value=".$row['name'].">".$row['name']. "</option>";
+                    echo "<option value=".$row['id'].">".$row['name']. "</option>";
                   }
                 
                 ?>

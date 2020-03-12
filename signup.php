@@ -1,8 +1,8 @@
+<?php include 'php/db_connect.php';?>
 <?php
 session_start();
 ob_flush();
 $message="";
-require 'php/db_connect1.php';
  
 if(isset($_POST['action']))
 {          
@@ -14,6 +14,10 @@ if(isset($_POST['action']))
        
 		$contact = floatval(mysqli_real_escape_string($connection,$_POST['contact']));
         $password = mysqli_real_escape_string($connection,$_POST['password']);
+
+    echo $email;
+    echo $name;
+    echo $contact;
 		$strSQL1 = mysqli_query($connection,"insert into users (email,name,contact,password) values ('".$email."','".$name."','".$contact."','".($password)."')");
 ?>
 		<META HTTP-EQUIV="refresh" CONTENT="1;URL=signin.php">
@@ -128,7 +132,7 @@ return true
 
 	<div class="login-card">
         	<h1>Sign-IN</h1><br>
-            	<form name="form1"action="" method="post" onsubmit="return check();">
+            	<form name="form1"action="" method="post" onsubmit=" check();">
 
             <input type="email" name="email" class="form-control input-sm chat-input" placeholder="email" />
             </br>

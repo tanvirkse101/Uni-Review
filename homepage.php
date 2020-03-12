@@ -90,7 +90,7 @@
             <h1 class="display-4" style="color:white;text-align: center;">University List</h1>
         </div>
         <?php 
-                $sql = 'SELECT name, location, rating FROM university';
+                $sql = 'SELECT id, name, location, rating, img_src FROM university';
                 $result = mysqli_query($conn,$sql);
                 $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 mysqli_free_result($result);
@@ -99,13 +99,14 @@
         <div class="card-columns">
 
             <?php foreach($info as $info) { ?>
+                <!-- <?php echo $info['img_src'];?>"> -->
 
             <div class="card shadow border rounded" style="width:356px;height:402px">
-                <img class="card-img-top" style="padding: 8px;" src="images/university_image.jpg" alt="">
+                <img class="card-img-top" style="padding: 8px;" src="upload/university/<?php echo $info['img_src'];?>" alt="">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><b><a style="color: black;"
-                                    href="university.php?<?php echo "uni_name="; ?><?php echo $info['name'];?>"><?php echo htmlspecialchars($info['name']); ?>
+                                    href="university.php?<?php echo "uni_id="; ?><?php echo $info['id'];?>"><?php echo htmlspecialchars($info['name']); ?>
                                     <??>
 
                                 </a></b>
