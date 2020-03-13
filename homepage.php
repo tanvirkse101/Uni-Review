@@ -72,19 +72,25 @@
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <?php
-                    if(isset($_SESSION["name"])) 
+                    if(isset($_SESSION["name"]) && $_SESSION["usertype"]=="regular") 
                     {
-                    echo '<a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                         echo '<a class="dropdown-item" href="userprofile.php">Edit Profile</a>
                          <a class="dropdown-item" href="php/logout.php">logout</a>
                          <a class="dropdown-item" href="aboutpage.php">About</a>
-                         <a class="dropdown-item" href="adminDashboard.php">Admin Dashboard</a>
                          <a class="dropdown-item" href=""> Contact Us</a>';
+                    }
+                    elseif(isset($_SESSION["name"]) && $_SESSION["usertype"]=="admin")
+                    {
+                        echo '<a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                        <a class="dropdown-item" href="php/logout.php">logout</a>
+                        <a class="dropdown-item" href="aboutpage.php">About</a>
+                        <a class="dropdown-item" href="adminDashboard.php">Admin Dashboard</a>';
                     }
                     else
                     {
                         echo '<a class="dropdown-item" href="signup.php">Register</a>
-                              <a class="dropdown-item" href="aboutpage.php">About</a>
-                              <a class="dropdown-item" href="#">Contact Us</a>';
+                        <a class="dropdown-item" href="aboutpage.php">About</a>
+                        <a class="dropdown-item" href="#">Contact Us</a>';
                     }
                     ?>
 
@@ -108,7 +114,7 @@
                         var inputVal = $(this).val();
                         var resultDropdown = $(this).siblings(".result");
                         if (inputVal.length) {
-                            $.get("backend-search.php", {
+                            $.get("php/backend-search.php", {
                                 term: inputVal
                             }).done(function (data) {
                                 // Display the returned data in browser

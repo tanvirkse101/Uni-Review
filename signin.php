@@ -18,9 +18,13 @@ if(isset($_POST['action']))
     if($row=mysqli_fetch_assoc($result))
     {
       $db_password = $row['password'];
-      if($password==$db_password)
+      if($password==$db_password && $row['usertype']=="regular")
       {
         header("location:homepage.php");
+      }
+      if($password==$db_password && $row['usertype']=="admin")
+      {
+        header("location:adminDashboard.php");
       }
       else
       {
@@ -28,6 +32,7 @@ if(isset($_POST['action']))
       }
       $_SESSION["name"] = $row['name'];
       $_SESSION["email"] = $row['email'];
+      $_SESSION["usertype"] = $row['usertype'];
     }
   }
 }
