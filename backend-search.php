@@ -10,7 +10,7 @@ if($link === false){
  
 if(isset($_REQUEST["term"])){
     // Prepare a select statement
-    $sql = "SELECT * FROM university WHERE name LIKE ?";
+    $sql = "SELECT name,id FROM university WHERE name LIKE ?";
     
     if($stmt = mysqli_prepare($link, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -26,9 +26,11 @@ if(isset($_REQUEST["term"])){
             // Check number of rows in the result set
             if(mysqli_num_rows($result) > 0){
                 // Fetch result rows as an associative array
+                echo "<ul class='list-group'>";
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                    echo "<p>" . $row["name"] . "</p>";
+                    echo "<li class='list-group-item'>" . $row["name"] . "</li>";
                 }
+                echo "</ul>";
             } else{
                 echo "<p>No matches found</p>";
             }
