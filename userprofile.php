@@ -18,7 +18,7 @@
 
 <body>
 
-    <div id="mySidebar" class="sidebar">
+<div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
@@ -31,31 +31,28 @@
         <button class="openbtn bg-dark" onclick="openNav()">&#9776; <b style="font-size: 18px;">Menu</b> </button>
 
         <a class="navbar-brand" style="margin-left:25%;" href="#">
-            <img class="rounded-circle" style="width: 50px;height: 50px" src="images/Uni_Logo.png" alt="Logo" style="width:40px;">
+            <img class="rounded-circle" style="width: 50px;height: 50px" src="images/Uni_Logo.png" alt="Logo"
+                style="width:40px;">
         </a>
 
         <a class="navbar-brand" href="#">Uni-Review</a>
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <form class="example" action="action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </nav>
+        
 
         <!-- Links -->
-        <ul class="navbar-nav" style="margin-left:15%;">
+        <ul class="navbar-nav" style="margin-left:35%;">
             <li class="nav-item">
                 <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Login</a>
+                <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Logout</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="userprofile.php">User Profile</a>
                     <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
@@ -116,8 +113,8 @@
 
 
 
-                <button type="button" class="btn btn-success btn-sm ">save</button>
-                <button type="button" class="btn btn-danger btn-sm">Edit</button>
+                <!-- <button type="button" class="btn btn-success btn-sm ">save</button>
+                <button type="button" class="btn btn-danger btn-sm">Edit</button> -->
             </div>
         </div>
     </div>

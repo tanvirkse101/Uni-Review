@@ -9,7 +9,7 @@ if(isset($_POST['btndelete'])){
 
     $id =   $_POST['id'];
 
-    $sql = "DELETE FROM course WHERE id=$id";
+    $sql = "DELETE FROM program WHERE id=$id";
 
     if (mysqli_query($conn, $sql)) {
         echo "Record deleted successfully";
@@ -28,6 +28,7 @@ if(isset($_POST['btndelete'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProgramLsit</title>
+    <?php include'php/headlinks.php' ?>
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -43,7 +44,7 @@ if(isset($_POST['btndelete'])){
 
 <body style="background-color:rgb(4, 4, 59)">
 
-    <div id="mySidebar" class="sidebar">
+<div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
@@ -62,15 +63,10 @@ if(isset($_POST['btndelete'])){
 
         <a class="navbar-brand" href="#">Uni-Review</a>
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <form class="example" action="action_page.php">
-                <input type="text" placeholder="Search program" name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </nav>
+        
 
         <!-- Links -->
-        <ul class="navbar-nav" style="margin-left:15%;">
+        <ul class="navbar-nav" style="margin-left:35%;">
             <li class="nav-item">
                 <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
@@ -82,10 +78,9 @@ if(isset($_POST['btndelete'])){
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="adminDashboard.php">Admin</a>
+                    <a class="dropdown-item" href="userprofile.php">User Profile</a>
                     <a class="dropdown-item" href="aboutpage.php">About</a>
-                    <a class="dropdown-item" href="#"> Contact Us</a>
+                    <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
         </ul>
@@ -98,6 +93,7 @@ if(isset($_POST['btndelete'])){
         <div class = "row">
 
         <?php
+        session_start();
 
             $uni_id=$_GET['uni_id'];
 
@@ -106,8 +102,41 @@ if(isset($_POST['btndelete'])){
          $result = mysqli_query($conn, $sql);
          while($row = mysqli_fetch_array($result) ){
 
+            if(isset($_SESSION["usertype"]) && strcmp($_SESSION["usertype"],"admin" ) == 0  ){
 
-            echo  '            
+               
+                    echo  '            
+                    <div class = "col-sm-12 col-md-6 col-lg-4">             
+                    <div class="card space" onmouseover="hover(this); show()" onmouseout= "endHover(this); hide()">
+                     <div class="card-header"> <h2 class="text-center">'.$row["title"].'</h2></div>
+                     <div class="card-body"><h5>'.$row["name"].'</h5>
+                         <p>'.$row["short_description"].'.</p>               
+                     </div> 
+                     <div class="card-footer">
+                        
+                        
+                    <form method="post"   enctype="multipart/form-data">
+                        <input type="hidden" name = "id"  value ='.$row["id"].' >
+                        <button type="submit" name="btndelete" >Delete</button>
+                    </form>
+                         </div>
+                        
+                     </div>
+                   </div>
+                
+                    
+                    ';
+
+                
+
+
+            
+               
+              }
+
+            else {
+                
+                echo  '            
             <div class = "col-sm-12 col-md-6 col-lg-4">             
             <div class="card space" onmouseover="hover(this); show()" onmouseout= "endHover(this); hide()">
              <div class="card-header"> <h2 class="text-center">'.$row["title"].'</h2></div>
@@ -117,10 +146,7 @@ if(isset($_POST['btndelete'])){
              <div class="card-footer">
                 
                 
-            <form method="post"   enctype="multipart/form-data">
-                <input type="hidden" name = "id"  value ='.$row["id"].' >
-                <button type="submit" name="btndelete" >Delete</button>
-            </form>
+           
                  </div>
                 
              </div>
@@ -128,6 +154,9 @@ if(isset($_POST['btndelete'])){
         
             
             ';
+
+            }
+            
           }
          
        

@@ -105,6 +105,13 @@
     margin-top: 50px;
 }
 
+#map{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 496px;
+}
+
 /* user info table css  starts*/
 
 

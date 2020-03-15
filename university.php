@@ -208,42 +208,7 @@ else {
                 </script>
 
                 <div id="Reviews" class="tabcontent">
-                    <div class="row justify-content-center">
-                        <?php include 'php/action.php'?>
-                        <div class="col-lg-5 rounded bg-light p-3">
-                            <?php 
-                            $sql = "SELECT * FROM university_comment WHERE university='$university' ORDER BY id DESC";
-                            $result=$conn->query($sql);
-                            while($row=$result->fetch_assoc()){
-                            ?>
-                            <div class="card mb-2 border-secondary">
-                                <div class="card-header bg-secondary py-1 text-light">
-                                    <span class="font-italic">Posted By: <?php echo $row['name'] ?></span>
-                                    <span class="font-italic float-right">On: <?php echo $row['cur_date'] ?></span>
-                                </div>
-                                <div class="card-body py-2">
-                                    <p class="card-text"><?php echo $row['comment'] ?></p>
-                                </div>
-                                <div class="card=footer py-2">
-                                    <div class="float-right">
-                                        <!-- <a href="php/action.php?del=<?php $row['id'] ?>" class="text-danger mr-2"
-                                onclick="return confirm('Do you want to delete this message?');" title="Delete"><i
-                                    class="fa fa-fw fa-trash"></i></a>
-                            <a href="comments.php?edit=<?php $row['id'] ?>" class="text-success mr-2"
-                                onclick="return confirm('Do you want to delete this message?');" title="Edit"><i
-                                    class="fa fa-fw fa-edit"></i></a>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-                            <?php 
-                            if(isset($_SESSION["name"])) 
-                            {
-                                echo '<a href="comments.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>">Add/edit comments</a>';
-                            }
-                            ?>
-                        </div>
-                    </div>
+                    <a href="comments.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>">Add/edit comments</a>
                 </div>
 
             </div>

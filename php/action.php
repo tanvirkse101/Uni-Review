@@ -1,11 +1,8 @@
 <?php
     require 'db_connect.php';
-    if(!isset($_SESSION['name'])){
-        session_start();
-    }
-    $university="";
+    session_start();
     $uni_id = $_GET['uni_id'];
-    $sqlu =  "SELECT id,name FROM university_comment WHERE id='$uni_id'";
+    $sqlu =  "SELECT name, location, rating, img_src, short_descr, contact FROM university WHERE id='$uni_id'";
     $result = mysqli_query($conn,$sqlu);
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
@@ -26,14 +23,5 @@
         }
         else $msg = "Failed to post comment!";
     }
-    //if(isset($_GET['del'])){
-        //$id=$_GET['del'];
-        //echo $id;
-        //$sql="DELETE FROM university_comment WHERE id='$id'";
 
-        //if($conn->query($sql)){
-        //    $string = "location:../comments.php?uni_id=".$uni_id;
-         //   header($string);
-        //}
-    //}
  ?>

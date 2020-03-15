@@ -18,7 +18,7 @@
 
 <body>
 
-    <div id="mySidebar" class="sidebar">
+<div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
@@ -37,28 +37,23 @@
 
         <a class="navbar-brand" href="#">Uni-Review</a>
 
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-            <form class="example" action="action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </nav>
+        
 
         <!-- Links -->
-        <ul class="navbar-nav" style="margin-left:15%;">
+        <ul class="navbar-nav" style="margin-left:35%;">
             <li class="nav-item">
-                <a href="homepage.php" class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
+                <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i> Login</a>
+                <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Logout</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="">About</a>
+                    <a class="dropdown-item" href="userprofile.php">User Profile</a>
+                    <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
@@ -76,7 +71,7 @@
         </p>
         <h1 class="headeradmin">Admins of this website</h1>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
 
                 <div class="shadow-lg p-3 mb-5 bg-white rounded" id="centerblock">
                     <img class="center" src="images/profile-avatar.png" alt="">
@@ -103,12 +98,11 @@
                                 <td>nothing is imposible</td>
                             </tr>
                         </table>
-                        <button type="button" class="btn btn-success btn-sm ">save</button>
-                        <button type="button" class="btn btn-danger btn-sm">Edit</button>
+                    
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded" id="centerblock">
                     <img class="center" src="images/profile-avatar.png" alt="">
                     <div class="profile-userbuttons">
@@ -134,14 +128,21 @@
                                 <td>nothing is imposible</td>
                             </tr>
                         </table>
-                        <button type="button" class="btn btn-success btn-sm ">save</button>
-                        <button type="button" class="btn btn-danger btn-sm">Edit</button>
+                       
                     </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded" id="map">
+                    <h3 style="text-align :center;" class="shadow-lg p-3 mb-5 bg-white rounded">Location </h3>
+                    
+                    <button class="btn-info"><a href="maps.php">Show map</a></button>
+                    
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded" id="centerblock">
                     <img class="center" src="images/profile-avatar.png" alt="">
                     <div class="profile-userbuttons">
@@ -167,12 +168,11 @@
                                 <td>nothing is imposible</td>
                             </tr>
                         </table>
-                        <button type="button" class="btn btn-success btn-sm ">save</button>
-                        <button type="button" class="btn btn-danger btn-sm">Edit</button>
+                        
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="shadow-lg p-3 mb-5 bg-white rounded" id="centerblock">
                     <img class="center" src="images/profile-avatar.png" alt="">
                     <div class="profile-userbuttons">
@@ -198,8 +198,7 @@
                                 <td>nothing is imposible</td>
                             </tr>
                         </table>
-                        <button type="button" class="btn btn-success btn-sm ">save</button>
-                        <button type="button" class="btn btn-danger btn-sm">Edit</button>
+                       
                     </div>
                 </div>
             </div>

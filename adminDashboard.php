@@ -1,6 +1,13 @@
 <?php include 'php/db_connect.php';?>
 <?php 
+
+session_start();
+
+if(!isset($_SESSION["usertype"]) || strcmp($_SESSION["usertype"],"admin" ) != 0 ){
+  header("Location: signin.php");
+}
     
+// echo $_SESSION["usertype"];
      // uni submission starts 
      if(isset($_POST['btnUni'])){
 
@@ -278,7 +285,7 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="userprofile.php">User Profile</a>
                     <a class="dropdown-item" href="aboutpage.php">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
