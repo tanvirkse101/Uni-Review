@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(!isset($_COOKIE['one'])){
     $cookie_name = 'one';
     $cookie_value = $_GET['uni_id'];
@@ -131,11 +131,11 @@ else {
                         $uni_id = $_COOKIE['one'];
                         $sql = "SELECT id, name FROM university WHERE id='$uni_id'";
                         $result = mysqli_query($conn,$sql);
-                        $info = mysqli_fetch_assoc($result);
+                        $info1 = mysqli_fetch_assoc($result);
                        
 
 
-                        echo  '<a href="university.php?uni_id='.$info['id'].'">'.$info['name'].'</a>';
+                        echo  '<a href="university.php?uni_id='.$info1['id'].'">'.$info1['name'].'</a>';
                         
                     }                                      
                     ?></h3>
@@ -144,22 +144,22 @@ else {
                         $uni_id = $_COOKIE['two'];
                         $sql = "SELECT id, name FROM university WHERE id='$uni_id'";
                         $result = mysqli_query($conn,$sql);
-                        $info = mysqli_fetch_assoc($result);
+                        $info2 = mysqli_fetch_assoc($result);
                        
 
 
-                        echo  '<a href="university.php?uni_id='.$info['id'].'">'.$info['name'].'</a>';
+                        echo  '<a href="university.php?uni_id='.$info2['id'].'">'.$info2['name'].'</a>';
                     }                                      
                     ?></h3>
                     <h3><?php if(isset($_COOKIE['three'])){
                         $uni_id = $_COOKIE['three'];
                         $sql = "SELECT id, name FROM university WHERE id='$uni_id'";
                         $result = mysqli_query($conn,$sql);
-                        $info = mysqli_fetch_assoc($result);
+                        $info3 = mysqli_fetch_assoc($result);
                        
 
 
-                        echo  '<a href="university.php?uni_id='.$info['id'].'">'.$info['name'].'</a>';
+                        echo  '<a href="university.php?uni_id='.$info3['id'].'">'.$info3['name'].'</a>';
                         
                     }                                      
                     ?></h3>
@@ -169,11 +169,10 @@ else {
                 <div id="Programs" class="tabcontent">
 
                     <?php 
-                   $uni_id = $_GET['uni_id'];
-                    $sql = "SELECT title, name, short_description, rating, university FROM program WHERE university='$uni_id'";
+                    $uni_id = $_GET['uni_id'];
+                    $sql = "SELECT name, short_description, rating, university FROM program WHERE university='$uni_id'";
                     $result = mysqli_query($conn,$sql);
                     $info = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
                     
                     mysqli_free_result($result);
                     mysqli_close($conn);
@@ -194,7 +193,7 @@ else {
                         <?php if(!empty($info)){
                             foreach($info as $info) { ?>
                         <li class="list-group-item">
-                            <h5><b><?php echo htmlspecialchars($info['title']); ?></b></h5>
+                            <h5><b><?php echo htmlspecialchars($info['name']); ?></b></h5>
                         </li>
                         <?php }
                         } ?>
@@ -209,124 +208,7 @@ else {
                 </script>
 
                 <div id="Reviews" class="tabcontent">
-
-                    <div class="demo-container">
-                        <form action=" " id="frmComment" method="post">
-                            <div class="row">
-                                <label> Name: </label> <span id="name-info"></span><input class="form-field" id="name"
-                                    type="text" name="user">
-                            </div>
-                            <div class="row">
-                                <label for="mesg"> Message : <span id="message-info"></span></label>
-                                <textarea class="form-field" id="message" name="message" rows="4"></textarea>
-
-                            </div>
-                            <div class="row">
-                                <input type="hidden" name="add" value="post" />
-                                <button type="submit" name="submit" id="submit" class="btn-add-comment">Add
-                                    Comment</button>
-                                <img src="LoaderIcon.gif" id="loader" />
-                            </div>
-                        </form>
-                        <?php
-                        include_once 'php/db_connect.php';
-
-                        $sql_sel = "SELECT * FROM university_comment";
-                        $result = mysqli_query($conn,$sql_sel);
-                        $count = $result->num_rows;
-
-                            if($count > 0) {
-                        ?>
-                        <div id="comment-count">
-                            <span id="count-number"><?php echo $count;?></span> Comment(s)
-                        </div>
-                        <?php } ?>
-                        <div id="response">
-                            <?php
-                            while ($row = $result->fetch_array(MYSQLI_ASSOC)) // using prepared staement
-                            {
-                            ?>
-                            <div id="comment-<?php echo $row["id"];?>" class="comment-row">
-                                <div class="comment-user"><?php echo $row["useremail"];?></div>
-                                <div class="comment-msg" id="msgdiv-<?php echo $row["id"];?>">
-                                    <?php echo $row["message"];?></div>
-                                <div class="delete" name="delete" id="delete-<?php echo $row["id"];?>"
-                                    onclick="deletecomment(<?php echo $row["id"];?>)">Delete</div>
-                            </div>
-                            <?php 
-                            }
-                            ?>
-                        </div>
-                    </div>
-
-                    <script type="text/javascript"></script>
-                    <script>
-                        function deletecomment(id) {
-
-                            if (confirm("Are you sure you want to delete this comment?")) {
-
-                                $.ajax({
-                                    url: "php/comment-delete.php",
-                                    type: "POST",
-                                    data: 'comment_id=' + id,
-                                    success: function (data) {
-                                        if (data) {
-                                            $("#comment-" + id).remove();
-                                            if ($("#count-number").length > 0) {
-                                                var currentCount = parseInt($("#count-number").text());
-                                                var newCount = currentCount - 1;
-                                                $("#count-number").text(newCount)
-                                            }
-                                        }
-                                    }
-                                });
-                            }
-                        }
-
-                        $(document).ready(function () {
-
-                            $("#frmComment").on("submit", function (e) {
-                                $(".error").text("");
-                                $('#name-info').removeClass("error");
-                                $('#message-info').removeClass("error");
-                                e.preventDefault();
-                                var name = $('#name').val();
-                                var message = $('#message').val();
-
-                                if (name == "") {
-                                    $('#name-info').addClass("error");
-                                }
-                                if (message == "") {
-                                    $('#message-info').addClass("error");
-                                }
-                                $(".error").text("required");
-                                if (name && message) {
-                                    $("#loader").show();
-                                    $("#submit").hide();
-                                    $.ajax({
-
-                                        type: 'POST',
-                                        url: 'php/comment-add.php',
-                                        data: $(this).serialize(),
-                                        success: function (response) {
-                                            $("#frmComment input").val("");
-                                            $("#frmComment textarea").val("");
-                                            $('#response').prepend(response);
-
-                                            if ($("#count-number").length > 0) {
-                                                var currentCount = parseInt($(
-                                                    "#count-number").text());
-                                                var newCount = currentCount + 1;
-                                                $("#count-number").text(newCount)
-                                            }
-                                            $("#loader").hide();
-                                            $("#submit").show();
-                                        }
-                                    });
-                                }
-                            });
-                        });
-                    </script>
+                    <a href="comments.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>">Add/edit comments</a>
                 </div>
 
             </div>

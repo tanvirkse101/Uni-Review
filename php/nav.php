@@ -1,6 +1,6 @@
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href=""><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
     <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
     <a href=""><i class="fa fa-fw fa-bell"></i> Notifications</a>
     <a href=""><i class="fa fa-fw fa-cogs"></i> Settings</a>
@@ -25,7 +25,7 @@
     <!-- Links -->
     <ul class="navbar-nav" style="margin-left:15%;">
         <li class="nav-item">
-            <a class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="homepage.php" class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i>
