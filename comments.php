@@ -1,4 +1,8 @@
-<?php include 'php/action.php'?>
+<?php include 'php/action.php';
+    if(!isset($_SESSION['name'])){
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 
 <head>
@@ -13,12 +17,12 @@
 <body class="bg-primary">
     <?php include 'php/nav.php'?>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center mb-2">
             <div class="col-lg-5 bg-light rounded mt-2">
                 <h4 class="content-center">Leave your review</h4>
                 <form action="comments.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>" method="POST" class="p-2">
                     <div class="form-group">
-                        <h5>Name: <?php echo $name ?></h5>
+                        <h5>Name: <?php echo $_SESSION['name'] ?></h5>
                     </div>
                     <div class="form-group">
                         <textarea name="comment" class="form-control rounded-0" placeholder="Write your comment"
@@ -44,16 +48,16 @@
                         <span class="font-italic float-right">On: <?php echo $row['cur_date'] ?></span>
                     </div>
                     <div class="card-body py-2">
-                        <p class="card-text"><?php $row['comment'] ?></p>
+                        <p class="card-text"><?php echo $row['comment'] ?></p>
                     </div>
                     <div class="card=footer py-2">
                         <div class="float-right">
-                            <a href="php/action.php?del=<?php $row['id'] ?>" class="text-danger mr-2"
+                            <!-- <a href="php/action.php?del=<?php $row['id'] ?>" class="text-danger mr-2"
                                 onclick="return confirm('Do you want to delete this message?');" title="Delete"><i
                                     class="fa fa-fw fa-trash"></i></a>
                             <a href="comments.php?edit=<?php $row['id'] ?>" class="text-success mr-2"
                                 onclick="return confirm('Do you want to delete this message?');" title="Edit"><i
-                                    class="fa fa-fw fa-edit"></i></a>
+                                    class="fa fa-fw fa-edit"></i></a>-->
                         </div>
                     </div>
                 </div>
