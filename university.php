@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(!isset($_SESSION['name'])){
+        session_start();
+}
 if(!isset($_COOKIE['one'])){
     $cookie_name = 'one';
     $cookie_value = $_GET['uni_id'];
