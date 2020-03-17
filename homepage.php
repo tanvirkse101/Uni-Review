@@ -45,7 +45,7 @@
                 });
             </script>
             <div class="search-box text-center">
-                <input type="text" autocomplete="off" placeholder="Search country..." />
+                <input type="text" autocomplete="off" placeholder="Search University..." />
                 <div class="result"></div>
             </div>
         </div>

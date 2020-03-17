@@ -148,7 +148,7 @@ return false;
 
 			<input type="submit" name="btnSignUp" class="login login-signup" value="Sign up">
              <div class="login-help">
-    			<a href="#">Login</a>
+    			<a href="signin.php">Login</a>
   				</div>
             </div>
         

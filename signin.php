@@ -21,7 +21,7 @@ if(isset($_POST['action']))
       {
         header("location:homepage.php");
       }
-      if($password==$db_password && $row['usertype']=="admin")
+      elseif($password==$db_password && $row['usertype']=="admin")
       {
         header("location:adminDashboard.php");
       }

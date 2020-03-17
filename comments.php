@@ -1,7 +1,8 @@
 <?php include 'php/action.php';
-    if(!isset($_SESSION['name'])){
+    if(!isset($_SESSION['uni_id'])){
         session_start();
     }
+$uni_id="";
 ?>
 <!DOCTYPE html>
 
@@ -20,7 +21,11 @@
         <div class="row justify-content-center mb-2">
             <div class="col-lg-5 bg-light rounded mt-2">
                 <h4 class="content-center">Leave your review</h4>
-                <form action="comments.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>" method="POST" class="p-2">
+                <?php 
+                                $uni_id = $_GET['uni_id'];
+                                $_SESSION['uni_id'] = $uni_id;
+                ?>
+                <form action="comments.php?<?php echo "uni_id="; ?><?php echo $uni_id?>" method="POST" class="p-2">
                     <div class="form-group">
                         <h5>Name: <?php echo $_SESSION['name'] ?></h5>
                     </div>
@@ -36,34 +41,41 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-5 rounded bg-light p-3">
-                <?php 
-                $sql = "SELECT * FROM university_comment WHERE university='$university' ORDER BY id DESC";
-                $result=$conn->query($sql);
-                while($row=$result->fetch_assoc()){
-            ?>
-                <div class="card mb-2 border-secondary">
-                    <div class="card-header bg-secondary py-1 text-light">
-                        <span class="font-italic">Posted By: <?php echo $row['name'] ?></span>
-                        <span class="font-italic float-right">On: <?php echo $row['cur_date'] ?></span>
-                    </div>
-                    <div class="card-body py-2">
-                        <p class="card-text"><?php echo $row['comment'] ?></p>
-                    </div>
-                    <div class="card=footer py-2">
-                        <div class="float-right">
-                            <!-- <a href="php/action.php?del=<?php $row['id'] ?>" class="text-danger mr-2"
+                        <div class="col-lg-5 rounded bg-light p-3">
+                            <?php 
+                            $sql = "SELECT * FROM university_comment WHERE university='$university' ORDER BY id DESC";
+                            $result=$conn->query($sql);
+                            while($row=$result->fetch_assoc()){
+                            ?>
+                            <div class="card mb-2 border-secondary">
+                                <div class="card-header bg-secondary py-1 text-light">
+                                    <span class="font-italic">Posted By: <?php echo $row['name'] ?></span>
+                                    <span class="font-italic float-right">On: <?php echo $row['cur_date'] ?></span>
+                                </div>
+                                <div class="card-body py-2">
+                                    <p class="card-text"><?php echo $row['comment'] ?></p>
+                                </div>
+                                <div class="card=footer py-2">
+                                    <div class="float-right">
+                                        <!-- <a href="php/action.php?del=<?php $row['id'] ?>" class="text-danger mr-2"
                                 onclick="return confirm('Do you want to delete this message?');" title="Delete"><i
                                     class="fa fa-fw fa-trash"></i></a>
                             <a href="comments.php?edit=<?php $row['id'] ?>" class="text-success mr-2"
                                 onclick="return confirm('Do you want to delete this message?');" title="Edit"><i
                                     class="fa fa-fw fa-edit"></i></a>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <?php 
+                            $uni_id = $_GET['uni_id'];
+                            if(isset($_SESSION["name"])) 
+                            {
+                                $uni_id = $_GET['uni_id'];
+                                echo '<a href="comments.php?uni_id='.$uni_id.'">Add comments</a>';
+                            }
+                            ?>
                         </div>
-                    </div>
-                </div>
-                <?php } ?>
-            </div>
-        </div>
     </div>
 </body>
 

@@ -1,11 +1,12 @@
 <?php
-    require 'db_connect.php';
-    if(!isset($_SESSION['name'])){
+    if(!isset($_SESSION['uni_id'])){
         session_start();
     }
+
+    require 'db_connect.php';
     $university="";
-    $uni_id = $_GET['uni_id'];
-    $sqlu =  "SELECT id,name FROM university_comment WHERE id='$uni_id'";
+    $uni_id = $_SESSION['uni_id'];
+    $sqlu =  "SELECT id,name FROM university WHERE id='$uni_id'";
     $result = mysqli_query($conn,$sqlu);
     if (mysqli_num_rows($result) > 0) {
         // output data of each row

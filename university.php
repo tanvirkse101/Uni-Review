@@ -239,9 +239,11 @@ else {
                             </div>
                             <?php } ?>
                             <?php 
+                            $uni_id = $_GET['uni_id'];
                             if(isset($_SESSION["name"])) 
                             {
-                                echo '<a href="comments.php?<?php echo "uni_id="; ?><?php echo  $uni_id;?>">Add/edit comments</a>';
+                                $uni_id = $_GET['uni_id'];
+                                echo '<a href="comments.php?uni_id='.$uni_id.'">Add comments</a>';
                             }
                             ?>
                         </div>

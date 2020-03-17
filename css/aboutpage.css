@@ -103,13 +103,13 @@
     width: 100%;
     margin: 0 auto;
     margin-top: 50px;
+    height: 500px;
 }
-
-#map{
+#map {
     width: 100%;
     margin: 0 auto;
-    margin-top: 50px;
-    height: 496px;
+    margin-top: 0px;
+    max-height: 384px;
 }
 
 /* user info table css  starts*/

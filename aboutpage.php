@@ -18,7 +18,7 @@
 
 <body>
 
-<div id="mySidebar" class="sidebar">
+    <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
         <a href=""><i class="fa fa-fw fa-envelope"></i> Messages</a>
@@ -37,23 +37,28 @@
 
         <a class="navbar-brand" href="#">Uni-Review</a>
 
-        
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <form class="example" action="action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </nav>
 
         <!-- Links -->
-        <ul class="navbar-nav" style="margin-left:35%;">
+        <ul class="navbar-nav" style="margin-left:15%;">
             <li class="nav-item">
-                <a class="nav-link" href="homepage.php"><i class="fa fa-fw fa-home"></i> Home</a>
+                <a href="homepage.php" class="nav-link" href=><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=><i class="fa fa-fw fa-user-circle"></i> Logout</a>
+                <a class="nav-link" href="signin.php"><i class="fa fa-fw fa-user-circle"></i> Login</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown01" style="margin-right: 2%"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-fw fa-cogs"></i>
                     Settings</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="userprofile.php">User Profile</a>
-                    <a class="dropdown-item" href="aboutpage.php">About</a>
+                    <a class="dropdown-item" href="userprofile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="">About</a>
                     <a class="dropdown-item" href=""> Contact Us</a>
                 </div>
             </li>
@@ -65,10 +70,7 @@
 
 
     <div class="container">
-        <h1 class="headeradmin">about page</h1>
-        <p class="headeradmin">This website is created for open discussion about Faculty, Course & Grade and study
-            related discussion platform for all the students and for ultimate source of problem-solving,Keep in touch.
-        </p>
+        
         <h1 class="headeradmin">Admins of this website</h1>
         <div class="row">
             <div class="col-md-4">
@@ -79,11 +81,11 @@
                         <table class="shadow-lg p-3 mb-5 bg-white rounded">
                             <tr>
                                 <td>first name:</td>
-                                <td>bruce</td>
+                                <td>Minhaj Uddin</td>
                             </tr>
                             <tr>
-                                <td>last name:</td>
-                                <td>lee</td>
+                                <td>University:</td>
+                                <td>North South University</td>
                             </tr>
                             <tr>
                                 <td>email:</td>
@@ -93,10 +95,7 @@
                                 <td>phone:</td>
                                 <td>0178549586</td>
                             </tr>
-                            <tr>
-                                <td>password:</td>
-                                <td>nothing is imposible</td>
-                            </tr>
+                            
                         </table>
                     
                     </div>
@@ -108,12 +107,12 @@
                     <div class="profile-userbuttons">
                         <table class="shadow-lg p-3 mb-5 bg-white rounded">
                             <tr>
-                                <td>first name:</td>
-                                <td>bruce</td>
+                                <td>name:</td>
+                                <td>tanvir ahmed</td>
                             </tr>
                             <tr>
-                                <td>last name:</td>
-                                <td>lee</td>
+                                <td>University:</td>
+                                <td>North South University</td>
                             </tr>
                             <tr>
                                 <td>email:</td>
@@ -123,20 +122,19 @@
                                 <td>phone:</td>
                                 <td>0178549586</td>
                             </tr>
-                            <tr>
-                                <td>password:</td>
-                                <td>nothing is imposible</td>
-                            </tr>
+                           
                         </table>
                        
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="shadow-lg p-3 mb-5 bg-white rounded" id="map">
-                    <h3 style="text-align :center;" class="shadow-lg p-3 mb-5 bg-white rounded">Location </h3>
+                <div class="shadow-lg p-3 mb-5 bg-white rounded" id="centerblock">
+                    <h5 style="text-align:center;">location of headoffice</h5>
                     
-                    <button class="btn-info"><a href="maps.php">Show map</a></button>
+                    <div style="max-height: 342px" id="map">
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -149,11 +147,11 @@
                         <table class="shadow-lg p-3 mb-5 bg-white rounded">
                             <tr>
                                 <td>first name:</td>
-                                <td>bruce</td>
+                                <td>Anne Tabassum</td>
                             </tr>
-                            <tr>
-                                <td>last name:</td>
-                                <td>lee</td>
+                             <tr>
+                                <td>University:</td>
+                                <td>North South University</td>
                             </tr>
                             <tr>
                                 <td>email:</td>
@@ -163,10 +161,7 @@
                                 <td>phone:</td>
                                 <td>0178549586</td>
                             </tr>
-                            <tr>
-                                <td>password:</td>
-                                <td>nothing is imposible</td>
-                            </tr>
+                            
                         </table>
                         
                     </div>
@@ -179,11 +174,11 @@
                         <table class="shadow-lg p-3 mb-5 bg-white rounded">
                             <tr>
                                 <td>first name:</td>
-                                <td>bruce</td>
+                                <td>Mainul islam rajon</td>
                             </tr>
-                            <tr>
-                                <td>last name:</td>
-                                <td>lee</td>
+                             <tr>
+                                <td>University:</td>
+                                <td>North South University</td>
                             </tr>
                             <tr>
                                 <td>email:</td>
@@ -193,18 +188,36 @@
                                 <td>phone:</td>
                                 <td>0178549586</td>
                             </tr>
-                            <tr>
-                                <td>password:</td>
-                                <td>nothing is imposible</td>
-                            </tr>
+                            
                         </table>
                        
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="shadow-lg p-3 mb-5 bg-white rounded" id="centerblock">
+                    <h3 style="text-align :center;" class="shadow-lg p-3 mb-5 bg-white rounded">Short Description</h3>
+                    
+                    <p style="font-size: x-small;">After HSC or equivalent exams, students often face difficulty to choose the best University for themselves amongst the huge pool of private and public Universities. Some have senior siblings, relatives, or friends to ask for advice and reviews but many face a lack of guidance. This lack of guidance might lead them to pick the University which might not be best suited for them. This is where our website Uni-Review comes to the assistance of unaware students. The reviews & ratings come from students who have studied in those Universities themselves. The students get a glimpse of the environment of the university along with various useful information. The website will offer the students important information other than reviews. Eager students can learn about the various programs offered, specialized courses, faculties, labs, etc. The students will be able to clear various doubts they have about a particular university. The aim of the website is to empower young students with the knowledge to find the best suited University for them.</p>
+                    
+                </div>
+            </div>
         </div>
+        
     </div>
     <!--Main Body End-->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 23.8151, lng: 90.4255},
+          zoom: 18
+        });
+      }
+    </script>
+   
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVchufqfCud7_b95sVGmKDlcTq_pUuEkA&callback=initMap"
+    async defer></script>
 
     <!--Bootstrap JS,JSQ-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
