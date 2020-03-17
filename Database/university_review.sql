@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 15, 2020 at 11:53 AM
+-- Generation Time: Mar 17, 2020 at 10:17 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -55,6 +55,13 @@ CREATE TABLE `course` (
   `university` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`id`, `title`, `name`, `short_description`, `university`) VALUES
+(1, 'mat350', 'asdfasdfasdasdfsdf', 'asfdfsadfasdf', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -104,7 +111,8 @@ CREATE TABLE `program` (
 --
 
 INSERT INTO `program` (`id`, `title`, `name`, `short_description`, `rating`, `university`) VALUES
-(5, 'cse', 'computer science and technology', 'this its test  this its testthis its testthis its testthis its testthis its testthis its testthis its testthis its test', 0, '13');
+(5, 'cse', 'computer science and technology', 'this its test  this its testthis its testthis its testthis its testthis its testthis its testthis its testthis its test', 0, '13'),
+(6, 'CEE', 'rtertyryadsfsd', 'sdfadfasdafsdfsdfs', 0, '1');
 
 -- --------------------------------------------------------
 
@@ -156,18 +164,11 @@ CREATE TABLE `university_comment` (
 --
 
 INSERT INTO `university_comment` (`id`, `name`, `university`, `comment`, `cur_date`) VALUES
-(31, 'Tanvir', 'Notun University', '33333', '2020-03-15'),
-(32, 'Tanvir', 'Notun University', '5555', '2020-03-15'),
-(33, 'Tanvir', 'Notun University', '5555', '2020-03-15'),
-(34, 'Tanvir', 'Notun University', '333', '2020-03-15'),
-(35, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(36, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(37, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(38, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(39, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(40, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(41, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15'),
-(42, 'Tanvir', 'Notun University', 'asfdasdfasdfasdfasd', '2020-03-15');
+(61, 'Minhaj', 'North South University', 'Hello world', '2020-03-16'),
+(62, 'Minhaj', 'North South University', 'Hello world', '2020-03-16'),
+(63, 'Minhaj', 'North South University', '33333333333', '2020-03-16'),
+(64, 'Minhaj', 'Best University', '4445', '2020-03-16'),
+(65, 'Minhaj', 'Best University', '333555', '2020-03-16');
 
 -- --------------------------------------------------------
 
@@ -188,7 +189,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`email`, `name`, `contact`, `password`, `usertype`) VALUES
-('arif@gmail', 'Arif', '01777399083', '123456', 'regular'),
+('arif@gmail.com', 'Arif', '01754101392', '123456', 'regular'),
+('batman@gmail.com', 'batman', '0175410139', '123456', 'regular'),
+('minhaj@gmail.com', 'Minhaj', '0175410139', '123456', 'regular'),
+('moin@gmail.com', 'Moin', '01754101392', '123456', 'regular'),
+('pritom@gmail.com', 'Pritom', '01754101392', '123456', 'regular'),
 ('tanvir@gmail.com', 'Tanvir', '01754101392', '123456', 'admin');
 
 --
@@ -256,7 +261,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `faculty`
@@ -274,7 +279,7 @@ ALTER TABLE `lab`
 -- AUTO_INCREMENT for table `program`
 --
 ALTER TABLE `program`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `university`
@@ -286,7 +291,7 @@ ALTER TABLE `university`
 -- AUTO_INCREMENT for table `university_comment`
 --
 ALTER TABLE `university_comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
